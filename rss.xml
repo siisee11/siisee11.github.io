@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Namclekun]]></title><description><![CDATA[The website for programmers]]></description><link>https://siisee11.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 15 Jan 2020 09:43:46 GMT</lastBuildDate><item><title><![CDATA[Ubuntu 위에 Ubuntu VM 설치]]></title><description><![CDATA[공용으로 사용하는 서버의 커널에 toy 모듈 삽입해보다가 서버 한 개 크게 하나 말아먹고, VM을 사용하기로 하였다. 처음에는 더 쉽고 간편한 docker로 하려고했는데, docker로 kernel module…]]></description><link>https://siisee11.github.io/2019-12-29-ubuntu-on-ubuntu/</link><guid isPermaLink="false">https://siisee11.github.io/2019-12-29-ubuntu-on-ubuntu/</guid><pubDate>Sun, 29 Dec 2019 10:03:47 GMT</pubDate><content:encoded>&lt;p&gt;공용으로 사용하는 서버의 커널에 toy 모듈 삽입해보다가 서버 한 개 크게 하나 말아먹고, VM을 사용하기로 하였다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Namclekun]]></title><description><![CDATA[The website for programmers]]></description><link>https://siisee11.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 16 Jan 2020 07:16:14 GMT</lastBuildDate><item><title><![CDATA[Ubuntu 위에 Ubuntu VM 설치]]></title><description><![CDATA[공용으로 사용하는 서버의 커널에 toy 모듈 삽입해보다가 서버 한 개 크게 하나 말아먹고, VM을 사용하기로 하였다. 처음에는 더 쉽고 간편한 docker로 하려고했는데, docker로 kernel module…]]></description><link>https://siisee11.github.io/2019-12-29-ubuntu-on-ubuntu/</link><guid isPermaLink="false">https://siisee11.github.io/2019-12-29-ubuntu-on-ubuntu/</guid><pubDate>Sun, 29 Dec 2019 10:03:47 GMT</pubDate><content:encoded>&lt;p&gt;공용으로 사용하는 서버의 커널에 toy 모듈 삽입해보다가 서버 한 개 크게 하나 말아먹고, VM을 사용하기로 하였다.&lt;/p&gt;
 &lt;p&gt;처음에는 더 쉽고 간편한 docker로 하려고했는데, docker로 kernel module개발하는 것은 안될 것이라는 글을 봐서 KVM을 사용하기 위해 설치 해보았다.&lt;/p&gt;
 &lt;p&gt;아래 커맨드로 virt-manager를 설치할 수 있다. CLI로 vm을 컨트롤하기 어려워서 virt-manager를 사용하는 듯 하다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install virt-manager&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -107,7 +107,45 @@ $ reboot&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;따라서 15를 만드는 경우는 1가지.
 경우가 나누어지는 곳을 재귀함수로 구현하여 코딩하면 다음과 같다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;{% gist 8b70a8a4a7116cba513bbedce59df24b %}&lt;/p&gt;</content:encoded></item><item><title><![CDATA[A Full and Comprehensive Style Test]]></title><description><![CDATA[Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs…]]></description><link>https://siisee11.github.io/a-full-style-test/</link><guid isPermaLink="false">https://siisee11.github.io/a-full-style-test/</guid><pubDate>Sun, 30 Sep 2018 07:03:47 GMT</pubDate><content:encoded>&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
+&lt;p&gt;{% gist 8b70a8a4a7116cba513bbedce59df24b %}&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Facenet WIKI 따라하기]]></title><description><![CDATA[facenet wiki의 예시를 따라해보았습니다.
+얼굴 인식 및 분류를 하기 위해서 facenet을 이용해보려고 합니다. 먼저 wiki에 있는 예시를 실행해보면서 코드를 이해하고 적용해볼 생각입니다. https://github.com…]]></description><link>https://siisee11.github.io/2019-12-24-facenet-wiki/</link><guid isPermaLink="false">https://siisee11.github.io/2019-12-24-facenet-wiki/</guid><pubDate>Tue, 24 Dec 2019 10:03:47 GMT</pubDate><content:encoded>&lt;p&gt;facenet wiki의 예시를 따라해보았습니다.
+얼굴 인식 및 분류를 하기 위해서 facenet을 이용해보려고 합니다. 먼저 wiki에 있는 예시를 실행해보면서 코드를 이해하고 적용해볼 생각입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/davidsandberg/facenet/wiki/Validate-on-LFW&quot;&gt;https://github.com/davidsandberg/facenet/wiki/Validate-on-LFW&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Prerequisite&lt;/h2&gt;
+&lt;p&gt;먼저 python 환경이 필요합니다. Anaconda를 설치하셔도 좋습니다.
+GPU가 있는 머신이 필요합니다.&lt;/p&gt;
+&lt;h2&gt;Clone&lt;/h2&gt;
+&lt;p&gt;facenet 레파지토리를 클론하고 requirements들을 다운로드 받습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git clone https://github.com/davidsandberg/facenet.git
+pip install -r requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;PYTHONPATH&lt;/h2&gt;
+&lt;p&gt;파이썬 패스를 설정해주어야 합니다. 아래에서 […] 은 facenet 디렉토리가 있는 경로를 적어주시면 됩니다. (ex. /home/siisee11/facenet/src)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;export PYTHONPATH=[...]/facenet/src&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Download dataset&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://vis-www.cs.umass.edu/lfw/lfw.tgz&quot;&gt;여기&lt;/a&gt; 에서 데이터를 다운로드 받습니다. 예시에서는 ~/Downloads 에 lfw.tgz 파일을 다운로드 받았습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;~/Downloads$ wget http://vis-www.cs.umass.edu/lfw/lfw.tgz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;~/datasets/lfw/raw 에 압축을 풀어줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cd ~/datasets
+mkdir -p lfw/raw
+tar xvf ~/Downloads/lfw.tgz -C lfw/raw --strip-components=1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Align lfw dataset&lt;/h2&gt;
+&lt;p&gt;다음으로 mtcnn을 이용해서 face detection 및 alignment(이미지 프리프로세싱)를 진행합니다. 다음 스텝에서 160*160 이미지를 사용하기 때문에 이에 맞춰서 이미지를 맞춰서 ~/datasets/lfw/lfw&lt;em&gt;mtcnnpy&lt;/em&gt;160 에 저장합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;for N in {1..4}; do \
+python src/align/align_dataset_mtcnn.py \
+~/datasets/lfw/raw \
+~/datasets/lfw/lfw_mtcnnpy_160 \
+--image_size 160 \
+--margin 32 \
+--random_order \
+--gpu_memory_fraction 0.25 \
+&amp;amp; done&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 때, GPU out of memory가 발생한다면 fraction 값을 0.2정도로 낮춰주면 됩니다.
+또 다른 에러로,
+&lt;code class=&quot;language-text&quot;&gt;allow_pickle=false&lt;/code&gt;
+라는 에러가 뜰 때가 있는데, 이는 numpy 버전 때문인데, src/align/detect&lt;em&gt;face.py 에서 np.load를 찾아서
+np.load(…, …, allow&lt;/em&gt;pickle=True)
+마지막에 allow_pickle=True 를 적어주면 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[A Full and Comprehensive Style Test]]></title><description><![CDATA[Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs…]]></description><link>https://siisee11.github.io/a-full-style-test/</link><guid isPermaLink="false">https://siisee11.github.io/a-full-style-test/</guid><pubDate>Sun, 30 Sep 2018 07:03:47 GMT</pubDate><content:encoded>&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1&gt;Heading 1&lt;/h1&gt;
 &lt;h2&gt;Heading 2&lt;/h2&gt;
