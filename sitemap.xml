@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url> <loc>https://siisee11.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://siisee11.github.io/3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/gettysburg-address/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/emancipation-proclamation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/purpose-of-education/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -14,12 +15,14 @@
 <url> <loc>https://siisee11.github.io/2019-12-29-ubuntu-kernel-version/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/2019-12-29-ubuntu-java/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/2019-12-29-ubuntu-on-ubuntu/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://siisee11.github.io/2020-01-21-My-Vim-command/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/tags/speeches/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/tags/getting-started/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/tags/tests/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/tags/ubuntu/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/tags/machine-learning/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/tags/programmers/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://siisee11.github.io/tags/tools/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/author/ghost/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/author/jaeyoun/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://siisee11.github.io/author/another-author/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
