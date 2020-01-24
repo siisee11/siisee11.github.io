@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Namclekun]]></title><description><![CDATA[The website for programmers]]></description><link>https://siisee11.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 23 Jan 2020 05:00:10 GMT</lastBuildDate><item><title><![CDATA[내가 자주 사용하는 VIM 커맨드]]></title><description><![CDATA[항상 사용하는 vim commands VIM은 오랫동안 존재해온 Text editor이다. 특이한 걸 좋아해서 쓰기 시작했다가 너무 마음에 들어서 계속 쓰고있다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Namclekun]]></title><description><![CDATA[The website for programmers]]></description><link>https://siisee11.github.io</link><generator>RSS for Node</generator><lastBuildDate>Fri, 24 Jan 2020 14:36:43 GMT</lastBuildDate><item><title><![CDATA[Ubuntu18.04 KGDB로 디버깅하는 환경 구성]]></title><description><![CDATA[모두 다 쓰고 싶어하지만 쓰는 사람은 별로없는 gdb, 그 중에서도 kgdb를 사용하기 위해서 무슨 설정을 해주어야 되는지 알아보자. kgdb…]]></description><link>https://siisee11.github.io/2020-01-21-kgdb/</link><guid isPermaLink="false">https://siisee11.github.io/2020-01-21-kgdb/</guid><pubDate>Fri, 24 Jan 2020 10:03:47 GMT</pubDate><content:encoded>&lt;p&gt;모두 다 쓰고 싶어하지만 쓰는 사람은 별로없는 gdb, 그 중에서도 kgdb를 사용하기 위해서 무슨 설정을 해주어야 되는지 알아보자.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;kgdb는 커널디버깅을 하기 위해서 사용한다. 보통 임베디드 시스템에서 타겟 커널을 디버깅하기 위해서 사용하는 것 같은데, 내 경우에는 커널 모듈을 디버깅하기 위해서 VM으로 ubuntu를 가동하고 이 ubuntu의 커널을 디버깅하기 위해서 사용한다.&lt;/p&gt;
+&lt;p&gt;즉 요약하면, 이 글의 목적은 Ubuntu 서버(Host)에서 VM으로 Ubuntu(Guest)를 가동시키고 Guest의 커널을 Host에서 디버깅하는 것이다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;3개의 terminal을 띄워 두고 시작한다.&lt;/p&gt;
+&lt;p&gt;첫번째 창은 Host로 가상머신을 구동하는 역할을 한다. &lt;em&gt;Host&lt;/em&gt;
+두번째 창은 gdb를 구동시키는 창이다. &lt;em&gt;gdb&lt;/em&gt;
+세번째 창은 guest의 터미널이다. &lt;em&gt;Guest&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;Host&lt;/h1&gt;
+&lt;h2&gt;Create ubuntu image&lt;/h2&gt;
+&lt;p&gt;ubuntu image를 만들어야 한다.
+virt-manager를 사용한다면 .qcow2 파일이 이에 해당한다. (기본 위치는 /var/lib/libvirt/images/ 밑)&lt;/p&gt;
+&lt;p&gt;virt-manager로 VM을 구동시키는 법은 &lt;a href=&quot;https://siisee11.github.io/2019-12-29-ubuntu-on-ubuntu/&quot;&gt;여기&lt;/a&gt;에서 확인 할 수 있다.&lt;/p&gt;
+&lt;h2&gt;Write shell command&lt;/h2&gt;
+&lt;p&gt;qemu 커맨드로 가상 VM 켜는 것은 아래의 쉘스크립트를 작성해서 실행하면 된다.&lt;/p&gt;
+&lt;p&gt;(tcp 포트로 5555를 사용함을 유의)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#!/bin/bash
+
+qemu-system-x86_64 \
+        --enable-kvm --nographic \
+        -smp 1 -m 2g \
+        -drive file=/var/lib/libvirt/images/ubuntu18.04-spark.qcow2,format=qcow2 \
+        -net nic -net user,hostfwd=tcp::5555-:22 \
+        -serial pty &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;실행하면 &lt;code class=&quot;language-text&quot;&gt;qemu-system-x86_64: -serial pty: char device redirected to /dev/pts/4 (label serial0)&lt;/code&gt; 이 뜨는데, 이 디바이스 이름을 기억해 놓자 (/dev/pts/4)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;Guest&lt;/h1&gt;
+&lt;h2&gt;ssh to VM&lt;/h2&gt;
+&lt;p&gt;qemu로 VM을 구동 시켰으니 VM에 접속해야한다.&lt;/p&gt;
+&lt;p&gt;guest의 터미널의 접속하는 방법은 ssh를 이용하는 것이다.&lt;/p&gt;
+&lt;p&gt;qemu를 실행할 때, port번호 5555번을 guest의 22번 포트로 터널을 뚫어 주었기 때문에 localhost의 5555번 포트로 접속가능하다. (&lt;em&gt;-net user,hostfwd=tcp::5555-:22&lt;/em&gt;)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ssh localhost -p5555&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Grub setting&lt;/h2&gt;
+&lt;p&gt;kgdb를 사용하기 위해서 Grub의 커맨드라인을 설정해주어야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo vim /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash kgdboc=ttyS0,115200 nokaslr&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;위의 커맨드라인에서 nokaslr 옵션은 커널소스코드 주소의 베이스가 동적으로 변하는 것을 막아줘서 디버그 심볼과 매칭이되게 해준다.&lt;/em&gt;
+변경사항을 저장하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo update-grub&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Guest에서 gdb에게 컨트롤을 넘겨주는 방법은 아래 커맨드를 입력하는 것으로 가능하다.
+위의 두 줄은 한번만 설정해주면 되고, 세번째 줄이 sysrq 시스템콜을 날려서 gdb로 컨트롤을 넘겨주는 커맨드이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo bash -c &amp;quot;echo ttyS0,115200 &amp;gt; /sys/module/kgdboc/parameters/kgdboc&amp;quot;
+sudo bash -c &amp;quot;echo 1 &amp;gt; /proc/sys/kernel/sysrq&amp;quot;
+sudo bash -c &amp;quot;echo g &amp;gt; /proc/sysrq-trigger&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 트리거를 발생시키면 host의 gdb로 컨트롤이 넘어가게된다. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;gdb (Host)&lt;/h1&gt;
+&lt;h2&gt;Download image&lt;/h2&gt;
+&lt;p&gt;guest에 설치된 버전의 vmlinux를 다운로드해야 한다.
+vmlinux란 소스파일이 컴파일되어 나온 커널 전체의 실행파일로 생각할 수 있다.
+&lt;code class=&quot;language-text&quot;&gt;(Guest)$ uname -r&lt;/code&gt;로 guest에 설치된 버전을 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;apt search 5.3.0-26-generic&lt;/code&gt; 로 이미지를 찾아서 다운로드한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;/usr/lib/debug/boot/&lt;/code&gt; 에 vmlinux-5.3.0-26-generic가 있을 것이다.
+해당 디렉토리로 이동하여 &lt;code class=&quot;language-text&quot;&gt;sudo gdb vmlinux-5.3.0-26-generic&lt;/code&gt;로 gdb를 실행한다.&lt;/p&gt;
+&lt;p&gt;gdb의 타겟은 qemu에서 redirect한 character device인 /dev/pts/4 이므로 아래 커맨드로 설정해준다.
+이 커맨드 전에 &lt;em&gt;Guest&lt;/em&gt;에서 트리거를 발생시켜줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(gdb) target remote /dev/pts/4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Problems&lt;/h2&gt;
+&lt;p&gt;위의 커맨드까지 입력하면 아래의 문제점들을 확인 할 수 있다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;0xffffffffa0f77604 in ?? ()&lt;/code&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;해당 주소값에 대한 debugsymbol을 못찾아서 저렇게 뜨는것이다.
+해당 커널의 디버그 심벌을 받으면 된다.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;/build/linux-hwe-3HpQOB/linux-hwe-5.3.0/init/main.c: No such file or directory.&lt;/code&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;해당 커널에 대한 소스코드가 없어서 현재 수행되는 부분의 소스코드를 보여줄 수 없다는 것이다.&lt;/p&gt;
+&lt;p&gt;위 두 문제에 대한 해결 방법은 해당 커널의 debugsymbol과 소스코드를 다운로드 받는 것이다.
+소스코드는 다음과 같이 다운로드 받는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apt source linux-image-unsigned-5.3.0-26-generic  #source code&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;디버그 심볼을 다운로드 받기위해서 저장소 업데이트를 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(host)$ echo &amp;quot;deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-updates main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-proposed main restricted universe multiverse&amp;quot; | \
+(host)$sudo tee -a /etc/apt/sources.list.d/ddebs.list
+(host)$sudo apt install ubuntu-dbgsym-keyring
+(host)$sudo apt-get update
+(host)$sudo apt install linux-image-5.3.0-26-generic-dbgsym 
+(host)$dpkg -L linux-image-5.3.0-26-generic-dbgsym&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://wiki.ubuntu.com/Debug%20Symbol%20Packages#Getting_-dbgsym.ddeb_packages&quot;&gt;Getting dbgsym.ddeb_packages&lt;/a&gt;에 더 자세히 나와있다.&lt;/p&gt;
+&lt;p&gt;gdb를 다시 실행해서 substitute-path를 이용해 소스코드 경로를 수정해준다. 앞의 경로가 나오면 뒤의 경로로 바꿔버리겠다는 뜻이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(gdb) set substitute-path /build/linux-hwe-3HpQOB/linux-hwe-5.3.0 /home/siisee11/linux-kernel/linux-hwe-5.3.0
+(gdb) target remote /dev/pts/4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[내가 자주 사용하는 VIM 커맨드]]></title><description><![CDATA[항상 사용하는 vim commands VIM은 오랫동안 존재해온 Text editor이다. 특이한 걸 좋아해서 쓰기 시작했다가 너무 마음에 들어서 계속 쓰고있다.
 오랫동안 쓰이고 현재 많은 IDE에서 VIM을 제공하는 것만 봐도 VIM…]]></description><link>https://siisee11.github.io/2020-01-21-My-Vim-command/</link><guid isPermaLink="false">https://siisee11.github.io/2020-01-21-My-Vim-command/</guid><pubDate>Tue, 21 Jan 2020 10:03:47 GMT</pubDate><content:encoded>&lt;p&gt;항상 사용하는 vim commands&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;VIM은 오랫동안 존재해온 Text editor이다. 특이한 걸 좋아해서 쓰기 시작했다가 너무 마음에 들어서 계속 쓰고있다.
