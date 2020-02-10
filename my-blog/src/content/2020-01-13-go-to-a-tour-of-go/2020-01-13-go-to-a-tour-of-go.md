@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tour of Go 연습문제 답
-image: 2020-01-13-go-to-a-tour-of-go/asset-1.jpg
+image: img/gopher.jpg
 author: Jaeyoun
 date: 2019-01-13T10:03:47.149Z
 tags: 
