@@ -1,17 +1,16 @@
 ---
-title: "Go to a Tour of Go"
-description: "A Tour of Go로 Go와 친해지기"
-date: "2019-12-08T17:46:10.113Z"
-categories: []
-published: true
-canonical_link: https://medium.com/@siisee111/go-to-a-tour-of-go-4b71240db43b
-redirect_from:
-  - /go-to-a-tour-of-go-4b71240db43b
+layout: post
+title: Tour of Go 연습문제 답
+image: 2020-01-13-go-to-a-tour-of-go/asset-1.jpg
+author: Jaeyoun
+date: 2019-01-13T10:03:47.149Z
+tags: 
+  - Go
 ---
 
 A Tour of Go로 Go와 친해지기 ( 연습문제 답 공유)
 
-![Gopher!!](./asset-1.jpg)
+---
 
 Go 언어를 사용하기 위한 tool을 배웠으니 이제 Go의 문법들을 하나씩 알아가야한다.
 
