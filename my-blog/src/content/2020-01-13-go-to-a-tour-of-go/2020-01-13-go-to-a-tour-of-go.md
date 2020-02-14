@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Tour of Go 연습문제 답
-image: img/gopher.jpg
+image: gopher.jpg
 author: Jaeyoun
-date: 2019-01-13T10:03:47.149Z
+date: 2020-01-13T10:03:47.149Z
 tags: 
   - Go
 ---
