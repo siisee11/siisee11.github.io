@@ -1,0 +1,52 @@
+---
+layout: post
+title: Ubuntu18.04 서버 network 설정
+image: server.jpg
+author: Jaeyoun
+date: 2020-02-14T10:03:47.149Z
+tags: 
+  - ubuntu
+---
+
+Ubuntu18.04의 network, nfs, nis 서버 세팅방법에 대한 내용이다.
+
+---
+
+# Network
+Ubuntu는 18.04부터 netplan을 사용한다.
+
+아래 커맨드로 사용할 네트워크 인터페이스 이름을 알아내자. ```en```으로 시작하는 것이 그 것이다.
+
+```
+$ ip addr
+```
+
+```/etc/netplan/<Tab>```파일을 수정한다. (아마 01-netcfg.yaml 일 것이다.)
+
+아래 내용을 참고해서 할당받은 ip 주소로 바꾸어준다.
+
+```
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp96s0f0:
+      addresses: [ 255.255.255.255/24 ]
+      gateway4: 255.255.255.255
+      nameservers:
+          addresses:
+              - "8.8.8.8"
+```
+
+마지막으로 적용한다.
+
+```
+$ netplan apply
+```
+
+네트워크가 잘 연결되었나 확인합니다.
+
+```
+$ ping 8.8.8.8
+$ ip addr
+```
