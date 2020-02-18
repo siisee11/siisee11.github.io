@@ -31,19 +31,18 @@ const About: React.FC = () => (
       <main id="site-main" className="site-main" css={[SiteMain, outer]}>
         <article className="post page" css={[PostFull, NoImage]}>
           <PostFullHeader>
-            <PostFullTitle>About</PostFullTitle>
+            <PostFullTitle>namj.be</PostFullTitle>
           </PostFullHeader>
 
           <PostFullContent className="post-full-content">
             <div className="post-content">
               <h1>
-                Hi, I'm Jaeyoun Nam.
+                Hi.
               </h1>
               <p>
-                I'm graduate student in SungKyunKwan University.
-                This is my personal website.
                 Thank you for your visit.
               </p>
+
             </div>
           </PostFullContent>
         </article>

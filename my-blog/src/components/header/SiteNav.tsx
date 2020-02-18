@@ -146,7 +146,10 @@ class SiteNav extends React.Component<SiteNavProps> {
               <Link to="/tags/tools/">Tools</Link>
             </li>
             <li role="menuitem">
-              <Link to="/tags/programmers/">programmers</Link>
+              <Link to="/tags/programmers/">Programmers</Link>
+            </li>
+            <li role="menuitem">
+              <a href="https://www.buymeacoffee.com/1voBdqG">Buy me a coffee</a>
             </li>
           </ul>
         </SiteNavLeft>

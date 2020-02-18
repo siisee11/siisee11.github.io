@@ -5,7 +5,7 @@ image: gopher.jpg
 author: Jaeyoun
 date: 2020-01-13T10:03:47.149Z
 tags: 
-  - Go
+  - golang
 ---
 
 A Tour of Go로 Go와 친해지기 ( 연습문제 답 공유)

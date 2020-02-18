@@ -5,7 +5,7 @@ image: img/Vim.jpeg
 author: Jaeyoun
 date: 2020-01-21T10:03:47.149Z
 tags: 
-  - Tools
+  - tools
 ---
 
 항상 사용하는 vim commands
