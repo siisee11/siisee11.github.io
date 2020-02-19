@@ -1,4 +1,5 @@
 import IndexLayout from '../layouts';
+import { Link } from 'gatsby';
 import Wrapper from '../components/Wrapper';
 import SiteNav from '../components/header/SiteNav';
 import { SiteHeader, outer, inner, SiteMain } from '../styles/shared';
@@ -13,6 +14,7 @@ import Helmet from 'react-helmet';
 const PageTemplate = css`
   .site-main {
     background: #fff;
+   /* background: #221f1f;*/
     padding-bottom: 4vw;
   }
 `;
@@ -42,6 +44,8 @@ const About: React.FC = () => (
               <p>
                 Thank you for your visit.
               </p>
+
+              <Link to="/author/jaeyoun/">My page</Link>
 
             </div>
           </PostFullContent>

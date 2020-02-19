@@ -24,7 +24,8 @@ import config from '../website-config';
 
 const PostTemplate = css`
   .site-main {
-    background: #fff;
+/*    background: #fff; */
+    background: #221f1f;
     padding-bottom: 4vw;
   }
 `;

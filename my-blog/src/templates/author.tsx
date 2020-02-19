@@ -26,6 +26,9 @@ import Helmet from 'react-helmet';
 import config from '../website-config';
 import Website from '../components/icons/website';
 import Twitter from '../components/icons/twitter';
+import Instagram from '../components/icons/instagram';
+import Youtube from '../components/icons/youtube';
+import Github from '../components/icons/github';
 
 const HiddenMobile = css`
   @media (max-width: 500px) {
@@ -93,6 +96,9 @@ interface AuthorTemplateProps {
     authorYaml: {
       id: string;
       website?: string;
+      instagram?: string;
+      youtube?: string;
+      github?: string;
       twitter?: string;
       facebook?: string;
       location?: string;
@@ -212,6 +218,42 @@ const Author: React.FC<AuthorTemplateProps> = props => {
                     <Twitter />
                   </a>
                 )}
+                {author.instagram && (
+                  <a
+                    className="social-link-is"
+                    css={SocialLink}
+                    href={`https://instagram.com/${author.instagram}`}
+                    title="Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Instagram />
+                  </a>
+                )}
+                {author.youtube && (
+                  <a
+                    className="social-link-is"
+                    css={SocialLink}
+                    href={`${author.youtube}`}
+                    title="Youtube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Youtube/>
+                  </a>
+                )}
+                {author.github && (
+                  <a
+                    className="social-link-is"
+                    css={SocialLink}
+                    href={`https://github.com/${author.github}`}
+                    title="Github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github/>
+                  </a>
+                )}
                 {author.facebook && (
                   <a
                     className="social-link-fb"
@@ -267,6 +309,9 @@ export const pageQuery = graphql`
       id
       website
       twitter
+      instagram
+      youtube
+      github
       bio
       facebook
       location

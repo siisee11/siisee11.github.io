@@ -32,48 +32,44 @@ _Go 프로그래밍 언어 투어에 오신 것을 환영합니다. 이 투어�
 
 각 페이지 별로 설명이 잘 되어있기 때문에, 섹션 별로 있는 연습문제에 대한 코드들만 적도록하겠다.
 
--   연습문제 Loop (Newton’s method)
-
 exercise1 — Loop (Newton’s method)
 
--   연습문제 Slice (picture)
+`gist:siisee11/c578ae2d2ab331b2127cb03aa6db2222`
 
 배열을 만들고 값을 대입하는 방법이 핵심이다.
 
 exercise2 — Slice (show picture)
 
-> 위 코드는 시시한 그림을 보여주는데, 아래 코드는 무려 프렉탈을 보여준다.
-
-고수의 프렉탈
-
--   연습문제 Wordcount
+`gist:siisee11/3cc4dfe9529d7517743bf288e8acfae4`
 
 exercise3 — map (Wordcount)
 
--   연습문제 Fibonacci
+`gist:siisee11/8837c0830b36c9dccbf1b3a8ab9a49c4`
 
 exercise4 — closure (Fibonacci)
 
--   연습문제 Complex cube roots
+`gist:siisee11/e9b2449aa14329263ba9995e9f17fd17`
 
 exercise5— complex (Compley cube root)
 
--   연습문제 Negative Sqrt error
+`gist:siisee11/8ee92a778906747dd7559e0f22ed34eb`
 
 exercise6 — Error (negative sqrt eror)
 
--   연습문제 Http
+`gist:siisee11/b905465eba41b241861bf7e1dd6a92e9`
 
 exercise7 — Http
 
--   연습문제 Image
+`gist:siisee11/9af93b0ffc48a117e5491cd7b2836c5a`
 
 exercise8 — Image type
 
--   연습문제 Rot13Readerekyll serve, which
+`gist:siisee11/6e3825982b6e4e841c2faf3e9894f628`
 
 exercise9 — Rot13Reader
 
--   연습문제 Equivalent binary tree
+`gist:siisee11/bf57a6f447d90d07f31268b0fe554f19`
 
 exercise10 — Go
+
+`gist:siisee11/13fff534627471b4aa37aaa3b79a93f9`
