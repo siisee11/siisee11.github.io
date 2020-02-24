@@ -49,7 +49,7 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: 'bbarista',
+  title: 'Barista',
   description: 'The blog for programmers',
   coverImage: 'img/cover1.jpg',
   logo: 'img/namclekun-white.png',
