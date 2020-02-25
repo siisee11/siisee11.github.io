@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 모르면 꽁돈 나가는 Uber 소소한 팁
-image: kisspoint.jpg
+image: Uber.jpg
 author: Jaeyoun
 date: 2020-02-23T22:13:47.149Z
 tags: 
