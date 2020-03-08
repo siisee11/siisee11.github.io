@@ -2,9 +2,9 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Namclekun',
+    title: 'BARISTA',
     description: 'The website for programmers',
-    siteUrl: 'https://siisee11.github.io', // full path to blog - no ending slash
+    siteUrl: 'https://namj.be', // full path to blog - no ending slash
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://siisee11.netlify.com',
+        siteUrl: 'https://namj.be',
       },
     },
     'gatsby-plugin-emotion',
