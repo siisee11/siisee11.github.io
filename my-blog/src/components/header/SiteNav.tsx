@@ -143,6 +143,9 @@ class SiteNav extends React.Component<SiteNavProps> {
               <Link to="/tags/ubuntu/">Ubuntu</Link>
             </li>
             <li role="menuitem">
+              <Link to="/tags/linux/">Linux</Link>
+            </li>
+            <li role="menuitem">
               <Link to="/tags/tools/">Tools</Link>
             </li>
             <li role="menuitem">
