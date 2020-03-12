@@ -33,19 +33,20 @@ const About: React.FC = () => (
       <main id="site-main" className="site-main" css={[SiteMain, outer]}>
         <article className="post page" css={[PostFull, NoImage]}>
           <PostFullHeader>
-            <PostFullTitle>namj.be</PostFullTitle>
+            <PostFullTitle>BARISTA</PostFullTitle>
           </PostFullHeader>
 
           <PostFullContent className="post-full-content">
             <div className="post-content">
               <h1>
-                Hi.
+                Hi. Welcome to BARISTA.
               </h1>
               <p>
-                Thank you for your visit.
+                This is blog of namj and hongtaeha.
               </p>
 
-              <Link to="/author/jaeyoun/">My page</Link>
+              <Link to="/author/jaeyoun/">namj page</Link>
+              <Link to="/author/hongtaeha/">hongtaeha page</Link>
 
             </div>
           </PostFullContent>
