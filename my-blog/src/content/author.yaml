@@ -1,5 +1,5 @@
 - id: Jaeyoun
-  avatar: avatars/JY-bold-big.png
+  avatar: avatars/jaeyoun_paint.png
   bio: The maintainer
   website: https://siisee11.github.io/porfolio/
   location: Republic of Korea
@@ -8,8 +8,8 @@
   youtube: https://www.youtube.com/channel/UCeNLnvqLnyicfz_4GZ-4RiQ
   github: siisee11
 - id: Taeha
-  avatar: avatars/namclekun_face.png
-  bio: co-maintainer
+  avatar: avatars/alcholhongric_trans.png
+  bio: Co-maintainer
   location: Republic of Korea
   github: HTaeha 
 - id: Another

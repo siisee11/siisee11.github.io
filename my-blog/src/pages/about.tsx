@@ -46,6 +46,7 @@ const About: React.FC = () => (
               </p>
 
               <Link to="/author/jaeyoun/">namj page</Link>
+              <br></br>
               <Link to="/author/taeha/">hongtaeha page</Link>
 
             </div>
