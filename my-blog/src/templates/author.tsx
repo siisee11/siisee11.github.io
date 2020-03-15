@@ -22,6 +22,7 @@ import {
 } from '../styles/shared';
 import { PageContext } from './post';
 import Facebook from '../components/icons/facebook';
+import Medium from '../components/icons/medium';
 import Helmet from 'react-helmet';
 import config from '../website-config';
 import Website from '../components/icons/website';
@@ -254,6 +255,18 @@ const Author: React.FC<AuthorTemplateProps> = props => {
                     <Github/>
                   </a>
                 )}
+                {author.medium && (
+                  <a
+                    className="social-link-is"
+                    css={SocialLink}
+                    href={`https://medium.com/@${author.medium}`}
+                    title="Medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Medium/>
+                  </a>
+                )}
                 {author.facebook && (
                   <a
                     className="social-link-fb"
@@ -312,6 +325,7 @@ export const pageQuery = graphql`
       instagram
       youtube
       github
+      medium
       bio
       facebook
       location
